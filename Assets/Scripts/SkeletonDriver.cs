@@ -45,6 +45,8 @@ public class SkeletonDriver : MonoBehaviour
 
     public bool isPaused = true;
 
+    public bool framesLoaded = false;
+
 
 
     [SerializeField]
@@ -55,6 +57,7 @@ public class SkeletonDriver : MonoBehaviour
     void Awake()
     {
         isPaused = true;
+        framesLoaded = false;
         Instance = this;
     }
     // Start is called before the first frame update
@@ -72,8 +75,7 @@ public class SkeletonDriver : MonoBehaviour
             Debug.Log("Playback is Paused");
         }
         else
-        {
-            
+        { 
             UpdateJointPosition();
         }
     }
