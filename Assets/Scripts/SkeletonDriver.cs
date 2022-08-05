@@ -47,6 +47,10 @@ public class SkeletonDriver : MonoBehaviour
 
     public bool framesLoaded = false;
 
+    public float totalTimeSeconds = 10f;
+    public float framesPerSecond = 1000f;
+    public float currentTimeFrames = 0.0f;
+
 
 
     [SerializeField]
@@ -70,14 +74,17 @@ public class SkeletonDriver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPaused)
+        if (!isPaused)
         {
-            Debug.Log("Playback is Paused");
-        }
-        else
-        { 
+            Debug.Log(CurrentFrame);
+
+            currentTimeFrames += Time.deltaTime * framesPerSecond;
+            CurrentFrame = (int)currentTimeFrames;
+
             UpdateJointPosition();
+
         }
+      
     }
 
 
@@ -112,7 +119,7 @@ public class SkeletonDriver : MonoBehaviour
         }
         else
         {
-            CurrentFrame++;
+            //CurrentFrame++;
         }
         //}
 
