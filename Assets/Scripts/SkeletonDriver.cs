@@ -51,6 +51,8 @@ public class SkeletonDriver : MonoBehaviour
     public float framesPerSecond = 1000f;
     public float currentTimeFrames = 0.0f;
 
+    string path = "C:/Users/jev/Documents/LIV Project/results/";
+
 
 
     [SerializeField]
@@ -76,7 +78,6 @@ public class SkeletonDriver : MonoBehaviour
     {
         if (!isPaused)
         {
-            Debug.Log(CurrentFrame);
 
             currentTimeFrames += Time.deltaTime * framesPerSecond;
             CurrentFrame = (int)currentTimeFrames;
@@ -115,6 +116,7 @@ public class SkeletonDriver : MonoBehaviour
         {
             isPaused = true;
             this.CurrentFrame = 0;
+            currentTimeFrames = 0.0f;
 
         }
         else
@@ -135,8 +137,7 @@ public class SkeletonDriver : MonoBehaviour
     public void ParseLowerCSV(string run_path)
     {
         Debug.Log("parsing");
-        string path = "C:/Users/jev/Documents/LIV Project/results/" + run_path;
-        string[] lines = System.IO.File.ReadAllLines(path);
+        string[] lines = System.IO.File.ReadAllLines(path + run_path);
         List<frame> frameList = new List<frame>();
         foreach (string line in lines)
         {
@@ -166,8 +167,7 @@ public class SkeletonDriver : MonoBehaviour
 
     public void ParseUpperCSV(string run_path)
     {
-        string path = "C:/Users/jev/Documents/LIV Project/results/" + run_path;
-        string[] lines = System.IO.File.ReadAllLines(path);
+        string[] lines = System.IO.File.ReadAllLines(path + run_path);
         List<frame> frameList = new List<frame>();
         foreach (string line in lines)
         {
