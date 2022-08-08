@@ -9,6 +9,7 @@ using UnityEngine;
 public class SkeletonDriver : MonoBehaviour
 {
 
+    //Struct to store the position of each joint at a certain frame
     public struct frame
     {
 
@@ -17,21 +18,26 @@ public class SkeletonDriver : MonoBehaviour
         public Vector3 l_controller;
         public Vector3 waistPredicted;
         public Vector3 waistActual;
-        public Vector3 rFootPredicted;
         public Vector3 rFootActual;
+        public Vector3 rFootPredicted;
         public Vector3 lFootPredicted;
         public Vector3 lFootActual;
 
     }
 
+    //List of lower joint positions
     public List<frame> lowerFrameStore { get; set; }
 
+    //List of upper joint positions
     public List<frame> upperFrameStore { get; set; }
 
+    //Path of results for playback
     public string directoryPath { get; set; }
 
+    //Class instance
     public static SkeletonDriver Instance;
 
+    //Game object decleration of each joint
     public GameObject head { get; set; }
     public GameObject l_controller { get; set; }
     public GameObject r_controller { get; set; }
@@ -43,23 +49,24 @@ public class SkeletonDriver : MonoBehaviour
     public GameObject a_r_foot { get; set; }
 
 
+    //bool for pausing / playing recording
     public bool isPaused = true;
 
+  
     public bool framesLoaded = false;
 
+    
     public float totalTimeSeconds = 10f;
     public float framesPerSecond = 1000f;
     public float currentTimeFrames = 0.0f;
 
-    string path = "C:/Users/jev/Documents/LIV Project/results/";
-
-
-
     [SerializeField]
     private int frameNum;
 
+    //current frame being displayed
     public int CurrentFrame { get; set; }
 
+    //on awake set paused to true, and set instance
     void Awake()
     {
         isPaused = true;
@@ -67,6 +74,7 @@ public class SkeletonDriver : MonoBehaviour
         Instance = this;
     }
     // Start is called before the first frame update
+    // Find all joint game objects in scene, set current frame to 0
     void Start()
     {
         CurrentFrame = 0;
@@ -74,6 +82,7 @@ public class SkeletonDriver : MonoBehaviour
     }
 
     // Update is called once per frame
+    // If playback is not paused, calculate next frame based on time elapsed since last call to update, set new frame, then update joint pos
     void Update()
     {
         if (!isPaused)
@@ -88,20 +97,10 @@ public class SkeletonDriver : MonoBehaviour
       
     }
 
-
-
-
+    // Set all joint game objects position to the vector based on the currentFrame, indexing the list
     public void UpdateJointPosition()
     {
 
-        //if (isPaused)
-        //{
-        //    Debug.Log("Paused");
-
-        //} 
-        // else
-        //{
-        //StartCoroutine(SlowFrames());
         head.transform.position = upperFrameStore[CurrentFrame].head;
         r_controller.transform.position = upperFrameStore[CurrentFrame].r_controller;
         l_controller.transform.position = upperFrameStore[CurrentFrame].l_controller;
@@ -117,27 +116,15 @@ public class SkeletonDriver : MonoBehaviour
             isPaused = true;
             this.CurrentFrame = 0;
             currentTimeFrames = 0.0f;
-
         }
-        else
-        {
-            //CurrentFrame++;
-        }
-        //}
-
     }
 
-    //public IEnumerator SlowFrames()
-    //{
-    //    isPaused = true;
-    //    yield return new WaitForSeconds(0.1f);
-     //   isPaused = false;
-    //}
 
+    // parse the predicted and lower body positions from the results CSV file
     public void ParseLowerCSV(string run_path)
     {
         Debug.Log("parsing");
-        string[] lines = System.IO.File.ReadAllLines(path + run_path);
+        string[] lines = System.IO.File.ReadAllLines(run_path);
         List<frame> frameList = new List<frame>();
         foreach (string line in lines)
         {
@@ -161,13 +148,13 @@ public class SkeletonDriver : MonoBehaviour
         }
         
         lowerFrameStore = frameList;
-        //return frameList;
 
     }
 
+    //Parse the upper body positions of the joints from CSV file
     public void ParseUpperCSV(string run_path)
     {
-        string[] lines = System.IO.File.ReadAllLines(path + run_path);
+        string[] lines = System.IO.File.ReadAllLines(run_path);
         List<frame> frameList = new List<frame>();
         foreach (string line in lines)
         {
@@ -187,10 +174,10 @@ public class SkeletonDriver : MonoBehaviour
             }
         }
         upperFrameStore = frameList;
-        //return frameList;
 
     }
 
+    // Get all joint game objects in the scene
     public void GetJoints()
     {
         head = GameObject.Find("head");
