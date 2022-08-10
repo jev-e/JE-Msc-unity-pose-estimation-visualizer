@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -65,37 +66,39 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1556}
+      Script: {instanceID: 3772}
     - Class: 114
-      Script: {instanceID: 1772}
+      Script: {instanceID: 3988}
     - Class: 114
-      Script: {instanceID: 1904}
+      Script: {instanceID: 4120}
     - Class: 114
-      Script: {instanceID: 2326}
+      Script: {instanceID: 4542}
     - Class: 114
-      Script: {instanceID: 2342}
+      Script: {instanceID: 4558}
     - Class: 114
-      Script: {instanceID: 2786}
+      Script: {instanceID: 5002}
     - Class: 114
-      Script: {instanceID: 2984}
+      Script: {instanceID: 5200}
     - Class: 114
-      Script: {instanceID: 3230}
+      Script: {instanceID: 5256}
     - Class: 114
-      Script: {instanceID: 3298}
+      Script: {instanceID: 5446}
     - Class: 114
-      Script: {instanceID: 3538}
+      Script: {instanceID: 5514}
     - Class: 114
-      Script: {instanceID: 3668}
+      Script: {instanceID: 5754}
     - Class: 114
-      Script: {instanceID: 3940}
+      Script: {instanceID: 5884}
     - Class: 114
-      Script: {instanceID: 4454}
+      Script: {instanceID: 6156}
     - Class: 114
-      Script: {instanceID: 4944}
+      Script: {instanceID: 6670}
     - Class: 114
-      Script: {instanceID: 5068}
+      Script: {instanceID: 7160}
     - Class: 114
-      Script: {instanceID: 5464}
+      Script: {instanceID: 7284}
+    - Class: 114
+      Script: {instanceID: 7680}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1486,4 +1489,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/ResultsVisualizer.unity
-  playerPath: C:/Users/Jev/Documents/Msc LIV Project/Msc LIV Project.exe
+  playerPath: C:/Users/jev/Documents/Liv Unity Project/LIV-proj-visualizer/Msc LIV
+    Project.exe
