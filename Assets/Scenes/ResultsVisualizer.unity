@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 621521230}
   - component: {fileID: 621521229}
   m_Layer: 0
-  m_Name: p_r_foot
+  m_Name: p_l_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1205,7 +1205,7 @@ GameObject:
   - component: {fileID: 897681020}
   - component: {fileID: 897681019}
   m_Layer: 0
-  m_Name: p_l_foot
+  m_Name: p_r_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1439,7 +1439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.10770844, y: -0, z: -0, w: 0.9941825}
-  m_LocalPosition: {x: 0.25, y: 1.32, z: -1.67}
+  m_LocalPosition: {x: -0.001, y: 1.32, z: -1.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 1154943227}
   - component: {fileID: 1154943226}
   m_Layer: 0
-  m_Name: r_foot
+  m_Name: l_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 1301070227}
   - component: {fileID: 1301070226}
   m_Layer: 0
-  m_Name: l_foot
+  m_Name: r_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
