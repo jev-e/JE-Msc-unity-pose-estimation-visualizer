@@ -57,7 +57,7 @@ public class SkeletonDriver : MonoBehaviour
 
     
     public float totalTimeSeconds = 10f;
-    public float framesPerSecond = 1000f;
+    public float framesPerSecond = 60f;
     public float currentTimeFrames = 0.0f;
 
     [SerializeField]
@@ -90,7 +90,6 @@ public class SkeletonDriver : MonoBehaviour
 
             currentTimeFrames += Time.deltaTime * framesPerSecond;
             CurrentFrame = (int)currentTimeFrames;
-
             UpdateJointPosition();
 
         }
