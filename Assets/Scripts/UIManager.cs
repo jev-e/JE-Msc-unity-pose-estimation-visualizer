@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
         
     }
 
+    // Accepts the full path (E.g C:\Path\to\results\directory\results\run), must have both prediciton and test_values csv in directory
     public void GetResultsDirectory(string directory)
     {
         if (directory == "")
@@ -48,15 +49,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Pause recording (if playing)
     public void PauseRecording()
     {
         SkeletonDriver.Instance.isPaused = true;
     }
+
+    // Play recording (if paused)
     public void PlayRecording()
     {
         SkeletonDriver.Instance.isPaused = false;
     }
     
+    // Set frame based on slider value
     public void SetFrame()
     {
         SkeletonDriver.Instance.CurrentFrame = (int)FrameSlider.value;
@@ -64,6 +69,7 @@ public class UIManager : MonoBehaviour
         SkeletonDriver.Instance.UpdateJointPosition();
     }
 
+    // Display stats based on bool
     public void ToggleStats()
     {
         StatsToggle = !StatsToggle;
@@ -71,6 +77,7 @@ public class UIManager : MonoBehaviour
  
     }
 
+    // Sets stats text
     public void SetStats()
     {
         StatsText.text = "Current Frame: " + SkeletonDriver.Instance.CurrentFrame + "\n" +
